@@ -25,24 +25,33 @@ const RegisterSecond = () => {
                                 className='space-y-6 ng-untouched ng-pristine ng-valid'
                                 >
                                 <div className='space-y-4'>
-                                    <div>
+                                    <div className='flex justify-between'>
+                                    <input
+                                        type='text'
+                                        name='country_code'
+                                        id='country_code'
+                                        required
+                                        placeholder='+880'
+                                        className='w-[25%] mr-[2%] px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
+                                        data-temp-mail-org='0'
+                                    />
+                                    <input
+                                        type='email'
+                                        name='email'
+                                        id='email'
+                                        required
+                                        placeholder='1XXXXXXXXX'
+                                        className='w-[73%] px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
+                                        data-temp-mail-org='0'
+                                    />
+                                    </div>
+                                    <div className='pt-[35px]'>
                                     <input
                                         type='email'
                                         name='email'
                                         id='email'
                                         required
                                         placeholder='Write Email Address'
-                                        className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
-                                        data-temp-mail-org='0'
-                                    />
-                                    </div>
-                                    <div className='pt-[35px]'>
-                                    <input
-                                        type='password'
-                                        name='password'
-                                        id='password'
-                                        required
-                                        placeholder='Write Password'
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />

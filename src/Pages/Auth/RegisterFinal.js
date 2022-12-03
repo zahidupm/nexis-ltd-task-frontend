@@ -24,7 +24,7 @@ const RegisterFinal = () => {
                                 className='space-y-6 ng-untouched ng-pristine ng-valid'
                                 >
                                 <div className='space-y-4'>
-                                    <div>
+                                    {/* <div>
                                     <input
                                         type='text'
                                         name='mobile_number'
@@ -34,14 +34,14 @@ const RegisterFinal = () => {
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
-                                    </div>
+                                    </div> */}
                                     <div className='pt-[35px]'>
                                     <input
-                                        type='text'
-                                        name='last_name'
-                                        id='last_name'
+                                        type='password'
+                                        name='password'
+                                        id='password'
                                         required
-                                        placeholder='Write Last Name'
+                                        placeholder='Write Password'
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
