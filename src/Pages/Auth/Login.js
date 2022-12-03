@@ -1,56 +1,73 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
+import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
+import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
+import PrimaryButton from '../../components/Button/PrimaryButton';
 
 const Login = () => {
     return (
         <div>
-            <h2>Login</h2>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
                 <div className="grid gap-10 row-gap-8 lg:grid-cols-5">
                     <div className="flex flex-col space-y-8 lg:col-span-3">
-                         {/*  */}
-                         
+                         <img  className='w-[164px] h-[60px]' src={Logo} alt="" />
+                         <img className='w-[612px] h-[437px]' src={SignImg} alt="" />
 
                     </div>
-                    <div className="lg:col-span-2">
-                    <p className="mb-2 text-xs font-semibold tracking-wide text-gray-600 uppercase">
-                        20 Nov 2020
-                    </p>
-                    <div className="mb-3">
-                        <a
-                        href="/"
-                        aria-label="Article"
-                        className="inline-block text-black transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                        <p className="font-sans text-xl font-extrabold leading-none tracking-tight lg:text-4xl xl:text-5xl">
-                            What it means when a man falls from outer space
-                        </p>
-                        </a>
-                    </div>
-                    <p className="mb-4 text-base text-gray-700 md:text-lg">
-                        Call it magical realism, call it realistic fantasy—call it whatever
-                        you want, but Arimah's playfully subversive style is wholly her own.
-                    </p>
-                    <div className="flex items-center">
-                        <a href="/" aria-label="Author" className="mr-3">
-                        <img
-                            alt="avatar"
-                            src="https://images.pexels.com/photos/220453/pexels-photo-220453.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260"
-                            className="object-cover w-10 h-10 rounded-full shadow-sm"
-                        />
-                        </a>
-                        <div>
-                        <a
-                            href="/"
-                            aria-label="Author"
-                            className="font-semibold text-gray-800 transition-colors duration-200 hover:text-deep-purple-accent-400"
-                        >
-                            Petru Vîrtos
-                        </a>
-                        <p className="text-sm font-medium leading-4 text-gray-600">
-                            Author
-                        </p>
+                    <div className="lg:col-span-2 ">
+                        <div className='h-[630px] w-[500px] rounded-md shadow-gray-300 login-form border-gray-100'>
+                            <h3 className='font-semibold text-xl text-center mt-[110px] mb-[80px]'>Log in Form</h3>
+                            <div className='px-[50px]'>
+                            <form
+                                noValidate=''
+                                action=''
+                                className='space-y-6 ng-untouched ng-pristine ng-valid'
+                                >
+                                <div className='space-y-4'>
+                                    <div>
+                                    <input
+                                        type='email'
+                                        name='email'
+                                        id='email'
+                                        required
+                                        placeholder='Write Email Address'
+                                        className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
+                                        data-temp-mail-org='0'
+                                    />
+                                    </div>
+                                    <div className='pt-[35px]'>
+                                    <input
+                                        type='password'
+                                        name='password'
+                                        id='password'
+                                        required
+                                        placeholder='Write Password'
+                                        className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
+                                        data-temp-mail-org='0'
+                                    />
+                                    </div>
+                                </div>
+
+                                <div className="flex items-center justify-center pt-[40px]">
+                                    <PrimaryButton
+                                    type='submit'
+                                    classes='flex items-center justify-center submit-btn px-8 py-3 font-semibold rounded-xl'
+                                    >
+                                    Log in
+                                    </PrimaryButton>
+                                </div>
+                                </form>
+                            </div>
+                            <div className='mt-20'>
+                             <p className='px-6 text-sm text-center text-gray-400'>
+                                Don't have an account yet?{' '}
+                                <Link to='/register' className='hover:underline uppercase text-[#1678CB] font-semibold'>
+                                    Signup here
+                                </Link>
+                                .
+                                </p>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     
                 </div>

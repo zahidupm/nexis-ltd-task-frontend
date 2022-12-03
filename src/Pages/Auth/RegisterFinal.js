@@ -1,11 +1,10 @@
 import React from 'react';
-import { FaArrowRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
 import PrimaryButton from '../../components/Button/PrimaryButton';
 
-const Register = () => {
+const RegisterFinal = () => {
     return (
         <div>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -28,8 +27,8 @@ const Register = () => {
                                     <div>
                                     <input
                                         type='text'
-                                        name='first_name'
-                                        id='first_name'
+                                        name='mobile_number'
+                                        id='mobile_number'
                                         required
                                         placeholder='Write First Name'
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
@@ -49,16 +48,24 @@ const Register = () => {
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-center pt-[40px]">
+                                <div className='flex items-center'>
+                                    <div>
                                     <Link to='/register_second'>
+                                            <button className='text-black mt-8'>
+                                                Back
+                                            </button>
+                                        </Link>
+                                    </div>
+                                    <div className="flex pl-24 items-center justify-center pt-[40px]">
                                     <PrimaryButton
                                     type='submit'
                                     classes='flex items-center justify-center submit-btn px-8 py-3 font-semibold rounded-xl'
                                     >
-                                    Next Step <FaArrowRight className='ml-2'/>
+                                    Sign Up
                                     </PrimaryButton>
-                                    </Link>
                                 </div>
+                                </div>
+                                
                                 </form>
                             </div>
                             <div className='mt-20'>
@@ -79,4 +86,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterFinal;

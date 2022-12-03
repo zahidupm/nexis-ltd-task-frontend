@@ -5,7 +5,7 @@ import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
 import PrimaryButton from '../../components/Button/PrimaryButton';
 
-const Register = () => {
+const RegisterSecond = () => {
     return (
         <div>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -27,37 +27,46 @@ const Register = () => {
                                 <div className='space-y-4'>
                                     <div>
                                     <input
-                                        type='text'
-                                        name='first_name'
-                                        id='first_name'
+                                        type='email'
+                                        name='email'
+                                        id='email'
                                         required
-                                        placeholder='Write First Name'
+                                        placeholder='Write Email Address'
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
                                     </div>
                                     <div className='pt-[35px]'>
                                     <input
-                                        type='text'
-                                        name='last_name'
-                                        id='last_name'
+                                        type='password'
+                                        name='password'
+                                        id='password'
                                         required
-                                        placeholder='Write Last Name'
+                                        placeholder='Write Password'
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
                                     </div>
                                 </div>
 
-                                <div className="flex items-center justify-center pt-[40px]">
-                                    <Link to='/register_second'>
-                                    <PrimaryButton
-                                    type='submit'
-                                    classes='flex items-center justify-center submit-btn px-8 py-3 font-semibold rounded-xl'
-                                    >
-                                    Next Step <FaArrowRight className='ml-2'/>
-                                    </PrimaryButton>
-                                    </Link>
+                                <div className='flex items-center'>
+                                    <div>
+                                        <Link to='/register'>
+                                            <button className='text-black mt-8'>
+                                                Back
+                                            </button>
+                                        </Link>
+                                    </div>
+                                        <div className="flex items-center justify-center pt-[40px] pl-24">
+                                        <Link to='/register_final'>
+                                        <PrimaryButton
+                                        type='submit'
+                                        classes='flex items-center justify-center submit-btn px-8 py-3 font-semibold rounded-xl'
+                                        >
+                                        Next Step <FaArrowRight className='ml-2'/>
+                                        </PrimaryButton>
+                                        </Link>
+                                    </div>
                                 </div>
                                 </form>
                             </div>
@@ -79,4 +88,4 @@ const Register = () => {
     );
 };
 
-export default Register;
+export default RegisterSecond;
