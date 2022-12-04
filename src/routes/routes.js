@@ -1,4 +1,5 @@
 import { createBrowserRouter } from 'react-router-dom';
+import Attendance from '../Pages/Attendance/Attendance';
 import Login from '../Pages/Auth/Login';
 import Register from '../Pages/Auth/Register';
 import RegisterFinal from '../Pages/Auth/RegisterFinal';
@@ -24,6 +25,10 @@ const routes = createBrowserRouter([
     {
         path: '/register_final',
         element: <RegisterFinal></RegisterFinal>
+    }, 
+    {
+        path: '/attendance',
+        element: <Attendance></Attendance>
     }
 ])
 
