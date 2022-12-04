@@ -7,6 +7,7 @@ import { AuthContext } from '../../contexts/auth.context';
 
 const Attendance = () => {
     const {user} = useContext(AuthContext);
+    const {status} = {};
     return (
         <div className=''>
             <div className='mx-10 py-6'>
@@ -45,30 +46,29 @@ const Attendance = () => {
                                 Zahid Hasan
                             </td>
                             <td class="py-4 px-6">
-                                Present
+                            {status === 'present' ? <p>Present</p> : <p>Absent</p> }
                             </td>
                         </tr>
                         <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Microsoft Surface Pro
+                                12/5/22
                             </th>
                             <td class="py-4 px-6">
-                                White
+                                Hasan Zahid
                             </td>
                             <td class="py-4 px-6">
-                                Laptop PC
+                                {status === 'present' ? <p>Present</p> : <p>Absent</p> }
                             </td>
-                          
                         </tr>
-                        <tr class="bg-white dark:bg-gray-800">
+                        <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                             <th scope="row" class="py-4 px-6 font-medium text-gray-900 whitespace-nowrap dark:text-white">
-                                Magic Mouse 2
+                                12/4/22
                             </th>
                             <td class="py-4 px-6">
-                                Black
+                                Zahid Hasan
                             </td>
                             <td class="py-4 px-6">
-                                Accessories
+                            {status === 'present' ? <p>Present</p> : <p>Absent</p> }
                             </td>
                         </tr>
                     </tbody>
