@@ -5,10 +5,18 @@ import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
 import PrimaryButton from '../../components/Button/PrimaryButton';
 import { AuthContext } from '../../contexts/auth.context';
+import useToken from '../../hooks/useToken';
 
 const RegisterFinal = () => {
     const {createUser} = useContext(AuthContext)
     const navigate = useNavigate();
+    const [createdUserEmail, setCreatedUserEmail] = useState('');
+    const [token] = useToken(createdUserEmail);
+
+    if(token) {
+      swal({ title: "Registered successfully!",icon: "success", });
+      navigate('/');
+    }
 
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -63,12 +71,28 @@ const RegisterFinal = () => {
         .then(result => {
             const user = result.user;
             console.log(user);
-            swal({title: "Registered Successful", icon: "success"});
-            navigate('/login');
+            saveUser(userInfo.email)
         })
         .catch(error => {
             console.error(error);
             setErrors({...errors, general: error.message})
+        })
+      }
+
+        // save user
+      const saveUser = (email) => {
+        const user = {email}
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          setCreatedUserEmail(email)
         })
       }
 

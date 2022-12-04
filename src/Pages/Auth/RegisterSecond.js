@@ -1,11 +1,39 @@
 import React from 'react';
 import { FaArrowRight } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import swal from 'sweetalert';
 import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
 import PrimaryButton from '../../components/Button/PrimaryButton';
 
 const RegisterSecond = () => {
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        const mobile_number = `${e.target.country_code.value} ${e.target.mobile_number.value}`
+        console.log(mobile_number);
+        saveUser(mobile_number);
+    }
+
+      // save user
+      const saveUser = (mobile_number) => {
+        const user = {mobile_number}
+        fetch(`http://localhost:5000/users`, {
+          method: "POST",
+          headers: {
+            'content-type': 'application/json'
+          },
+          body: JSON.stringify(user)
+        })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          swal({title: "Number saved successful", icon: "success"});
+          navigate('/register_final')
+        })
+      }
+
     return (
         <div>
             <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
@@ -20,6 +48,7 @@ const RegisterSecond = () => {
                             <h3 className='font-semibold text-xl text-center mt-[110px] mb-[80px]'>Sign up Form</h3>
                             <div className='px-[50px]'>
                             <form
+                            onSubmit={handleSubmit}
                                 noValidate=''
                                 action=''
                                 className='space-y-6 ng-untouched ng-pristine ng-valid'
@@ -36,16 +65,16 @@ const RegisterSecond = () => {
                                         data-temp-mail-org='0'
                                     />
                                     <input
-                                        type='email'
-                                        name='email'
-                                        id='email'
+                                        type='text'
+                                        name='mobile_number'
+                                        id='mobile_number'
                                         required
                                         placeholder='1XXXXXXXXX'
                                         className='w-[73%] px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
                                     </div>
-                                    <div className='pt-[35px]'>
+                                    {/* <div className='pt-[35px]'>
                                     <input
                                         type='email'
                                         name='email'
@@ -55,7 +84,7 @@ const RegisterSecond = () => {
                                         className='w-full px-3 py-2 border-[#B4B4B4] border-b-2 focus:outline-none text-gray-900'
                                         data-temp-mail-org='0'
                                     />
-                                    </div>
+                                    </div> */}
                                 </div>
 
                                 <div className='flex items-center'>
@@ -67,14 +96,12 @@ const RegisterSecond = () => {
                                         </Link>
                                     </div>
                                         <div className="flex items-center justify-center pt-[40px] pl-24">
-                                        <Link to='/register_final'>
                                         <PrimaryButton
                                         type='submit'
                                         classes='flex items-center justify-center submit-btn px-8 py-3 font-semibold rounded-xl'
                                         >
                                         Next Step <FaArrowRight className='ml-2'/>
                                         </PrimaryButton>
-                                        </Link>
                                     </div>
                                 </div>
                                 </form>

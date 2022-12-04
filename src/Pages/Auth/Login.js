@@ -5,10 +5,18 @@ import SignImg from '../../assets/img/istockphoto-1321277096-612x612 1.png';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
 import PrimaryButton from '../../components/Button/PrimaryButton';
 import { AuthContext } from '../../contexts/auth.context';
+import useToken from '../../hooks/useToken';
 
 const Login = () => {
-    const {singIn} = useContext(AuthContext);
+    const {signIn} = useContext(AuthContext);
     const navigate = useNavigate();
+    const [loginUserEmail, setLoginUserEmail] = useState('');
+    const [token] = useToken(loginUserEmail);
+
+    if(token) {
+      swal({title: "Login Successful", icon: "success"});
+      navigate('/attendance');
+    }
 
     const [userInfo, setUserInfo] = useState({
         email: "",
@@ -59,12 +67,11 @@ const Login = () => {
       const handleSubmit = (e) => {
         e.preventDefault();
 
-        singIn(userInfo.email, userInfo.password)
+        signIn(userInfo.email, userInfo.password)
         .then(result => {
             const user = result.user;
             console.log(user);
-            swal({title: "Login Successful", icon: "success"});
-            navigate('/attendance');
+            setLoginUserEmail(userInfo.email)
         })
         .catch(error => {
             console.error(error);

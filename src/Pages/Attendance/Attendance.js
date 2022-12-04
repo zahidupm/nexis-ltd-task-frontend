@@ -1,7 +1,12 @@
-import React from 'react';
+import { signOut } from 'firebase/auth';
+import React, { useContext } from 'react';
+import { Link } from 'react-router-dom';
 import Logo from '../../assets/img/ultimate hrm logo-05-02 2.png';
+import { auth } from '../../configs/firebase.config';
+import { AuthContext } from '../../contexts/auth.context';
 
 const Attendance = () => {
+    const {user} = useContext(AuthContext);
     return (
         <div className=''>
             <div className='mx-10 py-6'>
@@ -9,6 +14,11 @@ const Attendance = () => {
             </div>
             <div className='flex items-center justify-center'>
             <button className='bg-[#1678CB] px-10 rounded-md py-2 text-center text-xl font-semibold text-white'>Attendance information</button>
+            {user ? <button onClick={() => signOut(auth)} className='bg-[#1678CB] px-10 rounded-md py-2 text-center text-xl font-semibold text-white'>LogOut</button>
+            :    <Link to='/login'>
+                <button className='bg-[#1678CB] px-10 rounded-md py-2 text-center text-xl font-semibold text-white'>LogOut</button>
+            </Link> 
+        }
             </div>
             <div className='mx-10 py-6'>
             <div class="overflow-x-auto relative">
